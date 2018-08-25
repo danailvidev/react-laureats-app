@@ -5,6 +5,7 @@ class FilterPrize extends Component {
 
     onSearchChange = (e) => {
         const category = e.target.value;
+        this.props.filterPrizes(category);
     };
 
     render() {

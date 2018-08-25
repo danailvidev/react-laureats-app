@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import './prize.css';
+import Inquiry from './inquiry';
+import emailIcon from './Email.png';
 
 class Prize extends Component {
-    state = {};
+    state = {inquiryShow: false};
+
+    inquiryToggle = () => {
+        this.setState({inquiryShow: !this.state.inquiryShow})
+    };
 
     render() {
-        const {prize} = this.props;
+        const prize = this.props.prize;
+        const inquiry = this.state.inquiryShow ? <Inquiry prize={prize}/> : null;
         let laureates = prize.laureates.map(function (laur, index) {
             return <div key={index} className="card">
                 <div className="card-body">
@@ -23,6 +30,10 @@ class Prize extends Component {
                 <h5>Laureates:</h5>
                 <div className="cards">
                     {laureates}
+                </div>
+                <div>
+                    <img className="emailIcon" title="click to expand" src={emailIcon} onClick={this.inquiryToggle} alt=""/>
+                    {inquiry}
                 </div>
             </div>
         )

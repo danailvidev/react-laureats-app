@@ -1,5 +1,5 @@
 import React from 'react';
-import Prize from "./prize";
+import Prize from "../prize";
 
 const FeaturedPrize = (props) => {
     if (props.prize) {
